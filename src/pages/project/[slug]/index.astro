@@ -1,0 +1,23 @@
+---
+import { type CollectionEntry, getCollection, getEntry } from "astro:content";
+import Project from "../../../components/Project.astro";
+
+export interface Props {
+	project: CollectionEntry<"project">;
+}
+
+const { slug } = Astro.params;
+
+export async function getStaticPaths() {
+	const projects = await getCollection("project");
+
+	return projects.map((project) => ({
+		params: { slug: project.data.slug },
+		props: { project },
+	}));
+}
+
+const project = await getEntry("project", slug);
+---
+
+{project ? <Project project={project} /> : <p>Not found</p>}
