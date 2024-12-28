@@ -5,6 +5,7 @@
 	"type": "module",
 	"scripts": {
 		"dev": "astro dev",
+		"dev:tw": "tailwindcss -i ./src/styles/global.css -o ./src/output.css --watch",
 		"start": "astro dev",
 		"build": "astro build",
 		"preview": "astro preview",
