@@ -1,0 +1,63 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Gallery from "../components/Gallery.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+const pictures = {
+	Singapore: [
+		{
+			href: "https://placecage.lucidinternets.com/g/200/300",
+			alt: "The GOAT",
+		},
+		{
+			href: "https://placecage.lucidinternets.com/g/200/300",
+			alt: "The GOAT",
+		},
+		{
+			href: "https://placecage.lucidinternets.com/g/200/300",
+			alt: "The GOAT",
+		},
+		{
+			href: "https://placecage.lucidinternets.com/g/200/300",
+			alt: "The GOAT",
+		},
+	],
+	Kelowna: [
+		{
+			href: "https://placecage.lucidinternets.com/g/200/300",
+			alt: "The GOAT",
+		},
+		{
+			href: "https://placecage.lucidinternets.com/g/200/300",
+			alt: "The GOAT",
+		},
+		{
+			href: "https://placecage.lucidinternets.com/g/200/300",
+			alt: "The GOAT",
+		},
+		{
+			href: "https://placecage.lucidinternets.com/g/200/300",
+			alt: "The GOAT",
+		},
+	],
+};
+---
+
+<BaseLayout>
+	<Header />
+
+	<main
+		data-aos="fade-up"
+		data-aos-duration="2000"
+		class="px-8 2xl:max-w-7xl mx-auto"
+	>
+		{
+			Object.entries(pictures).map(([title, images]) => (
+				<Gallery key={title} title={title} images={images} />
+			))
+		}
+	</main>
+
+	<Footer />
+</BaseLayout>
